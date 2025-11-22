@@ -27,15 +27,17 @@ declare global {
      * Options for {@link Mod.event}.
      */
     type CreateEventOptions = {
-        /** Whether to run it daily */
+        /** Whether to run it daily or not */
         daily?: bool,
         /** The subject registry for the event */
         subject?: {
+            /** The registry name */
             reg: string,
             [key: string]: unknown
         },
         /** The target registry for the event */
         target?: {
+            /** The registry name */
             reg: string,
             [key: string]: unknown
         }
