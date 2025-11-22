@@ -2,25 +2,12 @@ export {}
 
 declare global {
     /** Planet info */
-    declare const planet: {
+    const planet: {
         /** The current day number */
         day: number,
 
-        /** The registry storage */
-        reg: {
-            /** A registry mapping registry names to registry IDs */
-            registry: Registry & Record<string, number>
-            [name: string]: Registry
-        }
-    }
-
-    /** Points to the same data as {@link planet.reg} */
-    declare const reg = planet.reg
-
-    /** A registry. Much more useful when extended. */
-    type Registry = {
-        _id: number,
-        [key: string]: unknown
+        /** Points to the same data as {@link reg} */
+        reg: MainRegistry
     }
 
     /**
@@ -28,7 +15,7 @@ declare global {
      */
     type CreateEventOptions = {
         /** Whether to run it daily or not */
-        daily?: bool,
+        daily?: boolean,
         /** The subject registry for the event */
         subject?: {
             /** The registry name */
@@ -44,7 +31,7 @@ declare global {
         /** The function to run */
         func: (subject: unknown, target: unknown, args: unknown) => void
     }
-    declare const Mod: {
+    const Mod: {
         /**
          * Creates an event.
          * 
@@ -58,7 +45,7 @@ declare global {
             options: CreateEventOptions
         ) => void
     };
-    declare let chunkSize: number;
+    let chunkSize: number;
 
     /**
      * Add a rendering layer to the canvas. This layer can then be accsessed from
@@ -68,7 +55,7 @@ declare global {
      * 
      * @param name The name of the added layer
      */
-    declare function addCanvasLayer(name: string): void;
+    function addCanvasLayer(name: string): void;
 
     /** Object with contexts for render layers */
     const canvasLayersCtx: {
@@ -88,17 +75,10 @@ declare global {
      * @param x  X offset
      * @param y  Y offset 
      * */
-    declare function chunkCoordsToCoords(
+    function chunkCoordsToCoords(
         cx: number, 
         cy: number, 
         x: number, 
         y: number
     ): [number, number]
-
-    /** 
-     * Creates a subregistry with the provided name 
-     * 
-     * @param name The name of the registry to create
-     */
-    declare function regCreate(name: string)
 }
