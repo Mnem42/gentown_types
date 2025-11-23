@@ -45,7 +45,9 @@ declare global {
             options: CreateEventOptions
         ) => void
     };
+
     let chunkSize: number;
+    let pixelSize: number;
 
     /**
      * Add a rendering layer to the canvas. This layer can then be accsessed from
