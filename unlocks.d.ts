@@ -1,11 +1,16 @@
+export {}
+
 declare global {
     type UnlockTreeItem = {
         level: number,
         name: string,
         emoji?: string,
-        influences?: Record<string, unknown>,
-        influencesNo?: Record<string, unknown>,
+
+        influences?: Record<string, number>,
+        influencesNo?: Record<string, number>,
         needsUnlock?: Record<string, unknown>,
+
+        message: string,
         [key:string]:unknown
     }
 
@@ -13,5 +18,5 @@ declare global {
         levels: UnlockTreeItem[]
     }
 
-    declare const unlockTree: UnlockTree
+    declare const unlockTree: Record<string,UnlockTree>
 }   
