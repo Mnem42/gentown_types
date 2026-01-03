@@ -1,31 +1,34 @@
 export {}
 
-type Biome = "water" | "mountain"
-
-type Chunk = {
-    /** Chunk x coordinate */
-    x: number,
-    /** Chunk y coordinate */
-    y: number,
-    /** Chunk temperature */
-    t: number,
-    /** Chunk moisure */
-    m: number,
-    /** Chunk biome */
-    b: Biome,
-
-    /** Chunk pixel elevation */
-    p: [
-        [number, number, number, number],
-        [number, number, number, number],
-        [number, number, number, number],
-        [number, number, number, number]
-    ]
-}
-
 declare global {
+    type Biome = "water" | "mountain"
+
+    type Chunk = {
+        /** Chunk x coordinate */
+        x: number,
+        /** Chunk y coordinate */
+        y: number,
+        /** Chunk temperature */
+        t: number,
+        /** Chunk moisure */
+        m: number,
+        /** Chunk biome */
+        b: Biome,
+
+        /** Chunk pixel elevation */
+        p: [
+            [number, number, number, number],
+            [number, number, number, number],
+            [number, number, number, number],
+            [number, number, number, number]
+        ]
+    }
+
     /** The map canvas. Drawn to from {@link canvasLayers} */
     let mapCanvas: HTMLCanvasElement
+
+    /** The water level */
+    let waterLevel: number
 
     /** Planet info */
     const planet: {
