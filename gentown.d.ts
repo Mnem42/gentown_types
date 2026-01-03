@@ -1,11 +1,27 @@
 export {}
 
-type Chunk = [
-    [number, number, number, number],
-    [number, number, number, number],
-    [number, number, number, number],
-    [number, number, number, number]
-]
+type Biome = "water" | "mountain"
+
+type Chunk = {
+    /** Chunk x coordinate */
+    x: number,
+    /** Chunk y coordinate */
+    y: number,
+    /** Chunk temperature */
+    t: number,
+    /** Chunk moisure */
+    m: number,
+    /** Chunk biome */
+    b: Biome,
+
+    /** Chunk pixel elevation */
+    p: [
+        [number, number, number, number],
+        [number, number, number, number],
+        [number, number, number, number],
+        [number, number, number, number]
+    ]
+}
 
 declare global {
     /** The map canvas. Drawn to from {@link canvasLayers} */
