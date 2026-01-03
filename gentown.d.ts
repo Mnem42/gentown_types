@@ -1,6 +1,16 @@
 export {}
 
+type Chunk = [
+    [number, number, number, number],
+    [number, number, number, number],
+    [number, number, number, number],
+    [number, number, number, number]
+]
+
 declare global {
+    /** The map canvas. Drawn to from {@link canvasLayers} */
+    let mapCanvas: HTMLCanvasElement
+
     /** Planet info */
     const planet: {
         /** The current day number */
@@ -8,6 +18,9 @@ declare global {
 
         /** Points to the same data as {@link reg} */
         reg: MainRegistry
+
+        /** The set of chunks */
+        chunks: {[coord: `${number},${number}`]: Chunk}
     }
 
     /**
@@ -45,7 +58,9 @@ declare global {
             options: CreateEventOptions
         ) => void
     };
+
     let chunkSize: number;
+    let pixelSize: number;
 
     /**
      * Add a rendering layer to the canvas. This layer can then be accsessed from
