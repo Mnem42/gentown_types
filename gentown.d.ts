@@ -40,6 +40,9 @@ declare global {
 
         /** The set of chunks */
         chunks: {[coord: `${number},${number}`]: Chunk}
+
+        /** The unlocked tech tree items */
+        unlocks: Record<string, number>
     }
 
     /**

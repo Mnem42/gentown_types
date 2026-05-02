@@ -8,7 +8,7 @@ declare global {
 
         influences?: Record<string, number>,
         influencesNo?: Record<string, number>,
-        needsUnlock?: Record<string, unknown>,
+        needsUnlock?: Record<string, number>,
 
         message: string,
         [key:string]:unknown
